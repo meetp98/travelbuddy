@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block content %}
+<script>
+	jQuery(function () {
+		jQuery("#appointment_date").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "0:+1",
+			dateFormat: 'd MM,yy'
+		});
+	});
+</script>
+<!--container start-->
+<div class="container scrolled-offset">
+	<!-- ======= About Us Section ======= -->
+	<section id="contact" class="contact">
+		<div class="container">
+			<div class="row">
+				<div class="form-wrapper">
+					<form enctype="multipart/form-data" method="post" class="php-email-form" action="">
+						{% csrf_token %}
+						<h2 class="form-signin-heading">
+							{% if fn == "add" %}
+							Add New Company
+							{% elif fn == "update" %}
+							Update Company
+							{% endif %}
+						</h2>
+						{% if messages %}
+						<div class="alert alert-success" style="margin:10px;">
+							{% for message in messages %}
+							<strong>{{ message }}</strong>
+							{% endfor %}
+						</div>
+						{% endif %}
+						<div class="form-group row">
+							<label class="col-sm-3 col-form-label">Company Name</label>
+							<div class="col-sm-5">
+								<input type="text" value="{{companyDetails.company_name}}" name="company_name" id="company_name"
+									class="form-control" placeholder="Company Name" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-3 col-form-label">Description of Company</label>
+							<div class="col-sm-5">
+								<textarea class="form-control" style="height:150px;" placeholder="Description"
+									autofocus="" name="company_description" id="company_description"
+									required>{{companyDetails.company_description}}</textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-3 col-form-label">&nbsp;</label>
+							<div class="col-sm-5">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-danger">Reset</button>
+							</div>
+						</div>
+				</div>
+				<input type="hidden" name="act" value="save_type">
+				<input type="hidden" name="user_id" value="{{typelist.company_id}}">
+				</form>
+			</div>
+		</div>
+</div>
+</section>
+<!-- End About Us Section -->
+</div>
+<!--container end-->
+{% endblock content %}

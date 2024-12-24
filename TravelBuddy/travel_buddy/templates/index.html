@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/Jaguar-I-Pace-Best-new-family-cars-for-every-budget-1600x900-cropped.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Travel Buddy</span></h2>
+              <p class="animate__animated animate__fadeInUp">A Travel Buddy is an agency that helpa people to find automobiles for short periods of time, generally ranging from a few hours to a few weeks.
+              </p>
+              <a href="/pages/about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url(assets/img/slide/drop_location.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">User Management System</h2>
+              <p class="animate__animated animate__fadeInUp">Moreover,Travel Buddy also allows user to list their own cars for routes and by that users can also earn some money.Travel Buddy has almost every type of car for all the sorts of people from couples to the entire family.
+
+              </p>
+              <a href="/pages/about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url(assets/img/slide/cyber-security.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Car Registration and Hiring</h2>
+              <p class="animate__animated animate__fadeInUp">Alongside the basic sharing of a vehicle, Travel Buddy service takes care of your privacy and for that weprovide you with highest level of security.
+              </p>
+              </p>
+              <a href="/pages/about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services section-bg">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-laptop"></i></div>
+              <h4 class="title"><a href="">Travel Buddy</a></h4>
+              <p class="description">A Travel Buddy is an agency that helpa people to find automobiles for short periods of time, generally ranging from a few hours to a few weeks.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h4 class="title"><a href="">User Registration System</a></h4>
+              <p class="description">Moreover,Travel Buddy also allows user to list their own cars for routes and by that users can also earn some money.Travel Buddy has almost every type of car for all the sorts of people from couples to the entire family.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              <h4 class="title"><a href="">Multi Role System</a></h4>
+              <p class="description">A car pooling, hire car, or car hire agency is a company that rents automobiles for short periods of time, generally ranging from a few hours to a few weeks.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="assets/img/travel.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Travel Buddy</h3>
+            <p>A Travel Buddy is a service that helps people to find a cars for short periods of time, generally ranging from a few hours to a few weeks. people can search for the cars for specific route and can easily book the car they want this will allow them to save money.
+            </p>
+            <p>Moreover,Travel Buddy also allows user to list their own cars for routes and by that users can also earn some money.Travel Buddy has almost every type of car for all the sorts of people from couples to the entire family.
+            </p>
+            <p>Alongside the basic sharing of a vehicle, Travel Buddy service takes care of your privacy and for that weprovide you with highest level of security.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Our Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our New Cars</h2>
+          <p>Alongside the basic pooling of a vehicle, car pooling agencies typically also offer extra products such as insurance, global positioning system (GPS) navigation systems, entertainment systems, mobile phones, portable WiFi and child safety seats.</p>
+        </div>
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            {% for car in carlist %}
+              <div class="swiper-slide"><img src="{{car.car_image}}" class="img-fluid" alt=""></div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Our Clients Section -->
+
+  </main><!-- End #main -->
+  {% endblock content %}
+

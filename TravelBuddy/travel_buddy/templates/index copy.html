@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Sequence Modern Slider -->
+    <div id="da-slider" class="da-slider" style="top:1px;">
+
+
+      <nav class="da-arrows">
+        <span class="da-arrows-prev">
+        </span>
+        <span class="da-arrows-next">
+        </span>
+      </nav>
+    </div>
+
+
+    <div class="container">
+      <div class="row mar-b-30">
+        <div class="col-md-12">
+          <div class="text-center feature-head wow fadeInDown">
+            <h1 class="" style="margin:30px;">
+              Welcome to Car Pooling System
+            </h1>
+
+          </div>
+
+
+          <div class="feature-box">
+            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+              <div class="feature-box-heading">
+                <em>
+                <img src="/assets/img/4.jpg" alt="" style="width:350px; height:180px;">
+
+                </em>
+                <h4>
+                  <b>Rent A Car</b>
+                </h4>
+              </div>
+              <p class="text-center">
+                An online shop evokes the physical analogy of buying products or services at a regular "bricks-and-mortar" retailer or shopping center.
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+              <div class="feature-box-heading">
+                <em>
+                  <img src="/assets/img/2.jpg" alt="" style="width:350px; height:180px;">
+                </em>
+                <h4>
+                  <b>Search Car By Category</b>
+                </h4>
+              </div>
+              <p class="text-center">
+                Online stores typically enable shoppers to use "search" features to find specific models, brands or items. Online customers must have access.
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+              <div class="feature-box-heading">
+                <em>
+                  <img src="/assets/img/3.jpg" alt="" style="width:350px; height:180px;">
+                </em>
+                <h4>
+                  <b>Book Your Car Online</b>
+                </h4>
+              </div>
+              <p class="text-center">
+                A typical online store enables the customer to browse the firm's range of products and services, view photos or images of the products
+              </p>
+            </div>
+          </div>
+
+          <!--feature end-->
+        </div>
+      </div>
+    </div>
+
+
+    <!--property start-->
+    <div class="property gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
+            <img src="/assets/img/1.jpg" alt="" style="height:335px; width: 550px">
+          </div>
+          <div class="col-lg-6 col-sm-6 wow fadeInRight">
+            <h1>
+              About Car Pooling System
+            </h1>
+            <hr>
+            <p>A car pooling, hire car, or car hire agency is a company that rents automobiles for short periods of time, generally ranging from a few hours to a few weeks. It is often organized with numerous local branches (which allow a user to return a vehicle to a different location), and primarily located near airports or busy city areas and often complemented by a website allowing online reservations.</p>
+            <p>Alongside the basic pooling of a vehicle, car pooling agencies typically also offer extra products such as insurance, global positioning system (GPS) navigation systems, entertainment systems, mobile phones, portable WiFi and child safety seats.</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--property end-->
+    <script type="text/javascript" src="/assets/js/parallax-slider/jquery.cslider.js"></script>
+	<script type="text/javascript">
+		  $(function() {
+
+			$('#da-slider').cslider({
+			  autoplay    : true,
+			  bgincrement : 100
+			});
+
+		  });
+	</script>
+  {% endblock content %}
+

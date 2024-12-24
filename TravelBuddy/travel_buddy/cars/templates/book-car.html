@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--container start-->
+<div class="container">
+    <!-- ======= About Us Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="form-wrapper">
+                    <form method="post" class="php-email-form">
+                        {% csrf_token %}
+                        <h2 class="form-signin-heading">Search Your Car</h2>
+                        <div class="login-wrap">
+                            <input type="text" class="form-group" placeholder="From Location" autofocus
+                                name="from_location" id="from_location" required style="width: 250px;">
+                            <input type="text" class="form-group" placeholder="To Location" autofocus name="to_location"
+                                id="to_location" required style="width: 250px;">
+                            <input type="date" class="form-group" placeholder="Start Date" autofocus name="pickup_date"
+                                id="pickup_date" required style="width: 250px;">
+                            <input type="date" class="form-group" placeholder="End Date" name="drop_date" id="drop_date"
+                                required style="width: 250px;">
+                            <label class="checkbox">
+                                <span class="pull-right">
+                                    &nbsp;
+                                </span>
+                            </label>
+                            <button class="btn btn-lg btn-login btn-block" type="submit">Search Car</button>
+                        </div>
+                        <input type="hidden" name="act" value="check_login">
+                        <div class="col-lg-12">
+                            {% if error == True %}
+                            <div class="alert alert-danger" style="margin:10px;">
+                                <strong>{{message}}</strong>
+                            </div>
+                            {% endif %}
+                            {% if carlist %}
+                            <div class="row" style="margin: 27px;">
+                                <h2 class="form-signin-heading">Search Car Results</h2>
+                                <table style="width:95%; margin:10px;">
+                                    {% for car in carlist %}
+                                    <tr style="border-bottom:1px solid #CCCCCC; height:120px;">
+                                        <td><img src="{{car.car_image}}" style="height:100px; width:80px"></td>
+                                        <td style="vertical-align:top">
+                                            <table class="ttt">
+                                                <tr>
+                                                    <td>Owner Name : </td>
+                                                    <td>{{car.user_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Contact No : </td>
+                                                    <td>{{car.user_mobile}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Car Name : </td>
+                                                    <td>{{car.car_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Company : </td>
+                                                    <td>{{car.company_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Price Per Day : </td>
+                                                    <td>{{car.car_price}}/-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Type : </td>
+                                                    <td>{{car.type_name}}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <a href="/cars/car-details/{{car.car_id}}" class="btn btn-danger"
+                                                style="width:100%; margin-top:10px; color:#FFFFFF">Book Now</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                             {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Us Section -->
+</div>
+<!--container end-->
+{% endblock content %}

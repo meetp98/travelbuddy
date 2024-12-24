@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<script>
+	$(document).on("click", ".delete-dialog", function () {
+		var id = $(this).data('id');
+		$("#recordID").val(id);
+	});
+	function delete_record(company_id) {
+		location.href = "/company/delete/" + company_id;
+	}
+</script>
+
+<div class="container scrolled-offset">
+	<!-- ======= About Us Section ======= -->
+	<section id="contact" class="contact">
+		<div class="row">
+			<div class="form-wrapper">
+				<div class="php-email-form">
+					<h2 class="form-signin-heading">All Company Report</h2>
+					<div class="row">
+						{% if messages %}
+						<div class="alert alert-success" style="margin:10px;">
+							{% for message in messages %}
+							<strong>{{ message }}</strong>
+							{% endfor %}
+						</div>
+						{% endif %}
+						<div class="col-lg-12">
+							<form name="frm" method="post">
+								<table class="table table-striped table-advance table-hover" style="color:#000000">
+									<tbody>
+										<tr class="bg-primary">
+											<th style="background-color:#152c3f; color:#FFFFFF;">Sr. No.</th>
+											<th style="background-color:#152c3f; color:#FFFFFF;">Company Name</th>
+											<th style="background-color:#152c3f; color:#FFFFFF;">Company Description
+											</th>
+											<th style="background-color:#152c3f; color:#FFFFFF;"><i
+													class="icon_cogs"></i> Action</th>
+										</tr>
+										{% for company in companylist %}
+										<tr>
+											<td style="text-align:center; font-weight:bold;">{{ forloop.counter }}</td>
+											<td>{{company.company_name}}</td>
+											<td>{{company.company_description}}</td>
+											<td>
+												<div class="btn-group">
+													<a href="/company/update/{{company.company_id}}"
+														class="btn btn-success">Edit</a>
+														<a class="delete-dialog btn btn-danger" href="JavaScript:delete_record({{company.company_id}})">Delete</a>
+												</div>
+											</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+								<input type="hidden" name="act" />
+								<input type="hidden" name="car_id" id="recordID" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+</div>
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<script>
+	$(document).on("click", ".delete-dialog", function () {
+		var id = $(this).data('id');
+		$("#recordID").val(id);
+	});
+	function delete_record(car_id) {
+		location.href = "/cars/delete/" + $("#recordID").val();
+	}
+</script>
+<style>
+	.listing {
+		padding: 21px 10px;
+		border-bottom: 1px solid #c94a3b;
+		text-align: center;
+	}
+</style>
+<!--container start-->
+<div class="container scrolled-offset">
+	<!-- ======= About Us Section ======= -->
+	<section id="contact" class="contact">
+		<div class="row">
+			<div class="form-wrapper">
+			<div class="php-email-form">
+				<h2 class="form-signin-heading">All Available Cars</h2>
+				{% if messages %}
+				<div class="alert alert-success" style="margin:10px;">
+					{% for message in messages %}
+					<strong>{{ message }}</strong>
+					{% endfor %}
+				</div>
+				{% endif %}
+					<div class="row">
+						{% for car in carlist %}
+						<div class="col-sm-3 listing">
+							<img src="{{car.car_image}}" style="width:200px; height:140px"><br>
+							{{car.car_name}}({{car.user_name}})<br>
+							Rs. {{car.car_price}}.00/- Per Day<br>
+							<span style="color:#ff0000; font-weight:bold">{{car.car_from_locations}} -
+								{{car.car_to_locations}}</span><br>
+							<a href="/cars/car-details/{{car.car_id}}" class="btn btn-primary"
+								style="width:100%; margin-top:10px;">Book This Car</a>
+						</div>
+						{% endfor %}
+					</div>
+			</div>
+			</div>
+			</div>
+	</section>
+</div>
+{% endblock content %}
